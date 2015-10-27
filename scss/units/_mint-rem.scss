@@ -1,0 +1,7 @@
+@function rem($value, $scale: null) {
+  @return mint-unit('mint-rem-expression', $mint-base-rem, $value, $scale);
+}
+
+@function mint-rem-expression($value) {
+  @return $value * 1rem;
+}

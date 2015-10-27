@@ -1,0 +1,16 @@
+$mint-rem-test: (
+  'rem': (
+    test: rem(16),
+    return: 1rem
+  ),
+  'rem scale': (
+    test: rem(16, 2),
+    return: 8rem
+  ),
+  'rem null': (
+    test: rem(16, null),
+    return: 1rem
+  )
+);
+
+@debug cart($mint-rem-test);

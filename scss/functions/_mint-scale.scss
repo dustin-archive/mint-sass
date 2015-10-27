@@ -1,0 +1,11 @@
+@function mint-scale($base, $value, $scale) {
+  @if type-of($value) == 'number' {
+    @return call('mint-scale-expression', $base, $value, $scale);
+  }
+
+  @return $value;
+}
+
+@function mint-scale-expression($base, $value, $scale) {
+  @return ($base / $scale) * $value;
+}

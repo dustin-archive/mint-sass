@@ -1,0 +1,16 @@
+$mint-px-test: (
+  'px': (
+    test: px(16),
+    return: 16px
+  ),
+  'px scale': (
+    test: px(16, 2),
+    return: 8px
+  ),
+  'px null': (
+    test: px(16, null),
+    return: 16px
+  )
+);
+
+@debug cart($mint-px-test);

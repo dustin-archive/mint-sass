@@ -1,0 +1,16 @@
+$mint-un-test: (
+  'un': (
+    test: un(16),
+    return: 1
+  ),
+  'un scale': (
+    test: un(16, 2),
+    return: 8
+  ),
+  'un null': (
+    test: un(16, null),
+    return: 1
+  )
+);
+
+@debug cart($mint-un-test);

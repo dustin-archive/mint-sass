@@ -1,0 +1,32 @@
+$mint-convert-test: (
+  'convert': (
+    test: mint-convert(16, 16),
+    return: 1
+  ),
+  'snap to pixel 16.1': (
+    test: mint-convert(16, 16.1),
+    return: 1.0078125
+  ),
+  'snap to pixel 16.15': (
+    test: mint-convert(16, 16.15),
+    return: 1.0078125
+  ),
+  'snap to pixel 16.16': (
+    test: mint-convert(16, 16.16),
+    return: 1.01171875
+  ),
+  'snap to pixel 16.2': (
+    test: mint-convert(16, 16.2),
+    return: 1.01171875
+  ),
+  'auto': (
+    test: mint-convert(16, auto),
+    return: auto
+  ),
+  'null': (
+    test: type-of(mint-convert(16, null)),
+    return: 'null'
+  )
+);
+
+@debug cart($mint-convert-test);

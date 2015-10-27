@@ -1,0 +1,7 @@
+@function em($value, $scale: null) {
+  @return mint-unit('mint-em-expression', $mint-base-em, $value, $scale);
+}
+
+@function mint-em-expression($value) {
+  @return $value * 1em;
+}

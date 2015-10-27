@@ -1,0 +1,20 @@
+$mint-scale-test: (
+  '1': (
+    test: mint-scale(1, 16, 1),
+    return: 16
+  ),
+  '16': (
+    test: mint-scale(16, 16, 16),
+    return: 16
+  ),
+  'auto': (
+    test: mint-scale(1, auto, 1),
+    return: auto
+  ),
+  'null': (
+    test: type-of(mint-scale(1, null, 1)),
+    return: 'null'
+  )
+);
+
+@debug cart($mint-scale-test);

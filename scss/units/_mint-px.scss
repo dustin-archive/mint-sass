@@ -1,0 +1,7 @@
+@function px($value, $scale: null) {
+  @return mint-unit('mint-px-expression', $mint-base-px, $value, $scale);
+}
+
+@function mint-px-expression($value) {
+  @return $value * 1px;
+}

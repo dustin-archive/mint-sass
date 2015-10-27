@@ -1,0 +1,16 @@
+$mint-em-test: (
+  'em': (
+    test: em(16),
+    return: 1em
+  ),
+  'em scale': (
+    test: em(16, 2),
+    return: 8em
+  ),
+  'em null': (
+    test: em(16, null),
+    return: 1em
+  )
+);
+
+@debug cart($mint-em-test);

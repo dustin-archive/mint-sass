@@ -1,15 +1,18 @@
-@function mint-unit($function, $base, $value, $scale) {
-  @if type-of($value) != 'number' {
-    @return $value;
+@function mint-unit($values, $scale, $base, $unit) {
+  $result: ();
+  $values: mint-compress($values);
+
+  @each $value in $values {
+    @if type-of($value) == 'number' and $value != 0 {
+      $value: mint-convert($value, $mint-base);
+      $value: mint-scale($value, $mint-base, $scale);
+      $value: $value * $unit;
+      $result: join($result, $value);
+    }
+    @else {
+      $result: join($result, $value);
+    }
   }
 
-  @if $value == 0 {
-    @return 0;
-  }
-
-  @if $scale {
-    $value: mint-scale($base, $value, $scale);
-  }
-
-  @return call($function, mint-convert($base, $value));
+  @return $result;
 }

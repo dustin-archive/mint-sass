@@ -1,24 +1,27 @@
 Mint Sass
 =========
 
-Convert pixel values to em, rem, and unitless values.
+Convert pixel values to em, rem, and unitless values the right way.
 
-# Functions
+## Functions
 ```scss
-px(value, [scale])  // pixel
-em(value, [scale])  // em
-rem(value, [scale]) // rem
-un(value, [scale])  // unitless
+px(values, [scale])  // pixel
+em(values, [scale])  // em
+rem(values, [scale]) // rem
+un(values, [scale])  // unitless
 ```
 
-# Pixel snapping
-When dealing with floating point values the output will snap to the nearest pixel. Due to this it's best to do all your math before sending it to the function.
+## Values
+Unit functions can accept any value. If a value is not a number it be output without being scaled or converted. This is useful when using variables and retaining the ability to prevent the properties from being output with a null value.
 
-# Scale
-The scale divides the value. This is useful when changing the font size of an element without scaling the rest of the box model if you're using em units. To keep your margins, paddings, and borders visually the same you can pass a scale argument to unit functions which would be the same as the font size. When using a scale pixel snapping is applied afterwards.
+## Multiple values
+If you want to convert multiple values at a time, rather than calling the function every time for each value, you can pass a list of values to convert. As well as converting the values, unit functions will also compress like-values when possible. For example, `1 1 1 1` will become `1` and `1 2 1 2` will become `1 2`.
 
-# Strings and null
-Unit functions will silently output strings and null values if passed and the scale will be ignored if there is one. This is useful when passing variables and removing multiple properties from being output with a null variable.
+## Pixel snapping
+When dealing with floating point values the output will snap to the nearest pixel. Snapping to the nearest pixel can reduce file size by reducing the length of the floating point or remove it entirely. It can also prevent weird rounding bugs in the browser. Due to this it's best to do all your math before sending it to the function.
 
-# Variables
-In `_mint-variables.scss` you can modify the `$mint-base` variable if you wish to change the base font size used when converting.
+## Scale
+Scale divides the values. If you're using em units, this is useful when changing the font size of an element without wanting to scale the rest of the box model. To keep your margins, paddings, and borders visually the same you can pass a scale argument the same as the font size.
+
+## Variables
+In `_mint-variables.scss` you can modify the `$mint-base` variable if you wish to change the base font size used when converting, but I personally do not recommend doing this.

@@ -1,11 +1,15 @@
 @function mint-unit($function, $base, $value, $scale) {
-  @if type-of($value) == 'number' {
-    @if $scale {
-      $value: mint-scale($base, $value, $scale);
-    }
-
-    @return call($function, mint-convert($base, $value));
+  @if type-of($value) != 'number' {
+    @return $value;
   }
 
-  @return $value;
+  @if $value == 0 {
+    @return 0;
+  }
+
+  @if $scale {
+    $value: mint-scale($base, $value, $scale);
+  }
+
+  @return call($function, mint-convert($base, $value));
 }

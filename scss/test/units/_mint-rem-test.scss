@@ -10,6 +10,10 @@ $mint-rem-test: (
   'rem null': (
     test: rem(16, null),
     return: 1rem
+  ),
+  'rem 0': (
+    test: rem(0) + '',
+    return: 0 + ''
   )
 );
 

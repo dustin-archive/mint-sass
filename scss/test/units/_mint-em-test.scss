@@ -10,6 +10,10 @@ $mint-em-test: (
   'em null': (
     test: em(16, null),
     return: 1em
+  ),
+  'em 0': (
+    test: em(0) + '',
+    return: 0 + ''
   )
 );
 

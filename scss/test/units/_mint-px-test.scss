@@ -10,6 +10,10 @@ $mint-px-test: (
   'px null': (
     test: px(16, null),
     return: 16px
+  ),
+  'px 0': (
+    test: px(0) + '',
+    return: 0 + ''
   )
 );
 

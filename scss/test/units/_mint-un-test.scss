@@ -10,6 +10,10 @@ $mint-un-test: (
   'un null': (
     test: un(16, null),
     return: 1
+  ),
+  'un 0': (
+    test: un(0) + '',
+    return: 0 + ''
   )
 );
 

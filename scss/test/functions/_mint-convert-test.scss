@@ -3,20 +3,20 @@ $mint-convert-test: (
     test: mint-convert(16, 16),
     return: 1
   ),
-  'snap to pixel 16.1': (
-    test: mint-convert(16, 16.1),
+  'snap 16.1': (
+    test: mint-convert(16.1, 16),
     return: 1.0078125
   ),
-  'snap to pixel 16.15': (
-    test: mint-convert(16, 16.15),
+  'snap 16.15': (
+    test: mint-convert(16.15, 16),
     return: 1.0078125
   ),
-  'snap to pixel 16.16': (
-    test: mint-convert(16, 16.16),
+  'snap 16.16': (
+    test: mint-convert(16.16, 16),
     return: 1.01171875
   ),
-  'snap to pixel 16.2': (
-    test: mint-convert(16, 16.2),
+  'snap 16.2': (
+    test: mint-convert(16.2, 16),
     return: 1.01171875
   )
 );

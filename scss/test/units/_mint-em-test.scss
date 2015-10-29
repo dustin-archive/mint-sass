@@ -1,19 +1,39 @@
 $mint-em-test: (
-  'em': (
-    test: em(16),
-    return: 1em
+  'convert': (
+    test: em(16) + '',
+    return: '1em'
   ),
-  'em scale': (
-    test: em(16, 2),
-    return: 8em
+  'scale': (
+    test: em(16, 2) + '',
+    return: '8em'
   ),
-  'em null': (
-    test: em(16, null),
-    return: 1em
+  'auto': (
+    test: em(auto) + '',
+    return: 'auto'
   ),
-  'em 0': (
+  '0': (
     test: em(0) + '',
-    return: 0 + ''
+    return: '0'
+  ),
+  'null': (
+    test: em(null) + '',
+    return: ''
+  ),
+  'compress string': (
+    test: em(auto auto) + '',
+    return: 'auto'
+  ),
+  'compress 2 to 1': (
+    test: em(16 16) + '',
+    return: '1em'
+  ),
+  'compress 4 to 1': (
+    test: em(16 16 16 16) + '',
+    return: '1em'
+  ),
+  'compress 4 to 2': (
+    test: em(16 32 16 32) + '',
+    return: '1em 2em'
   )
 );
 

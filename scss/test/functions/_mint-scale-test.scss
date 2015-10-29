@@ -1,7 +1,11 @@
 $mint-scale-test: (
   '1': (
-    test: mint-scale(1, 16, 1),
+    test: mint-scale(16, 1, 1),
     return: 16
+  ),
+  '8': (
+    test: mint-scale(16, 1, 2),
+    return: 8
   ),
   '16': (
     test: mint-scale(16, 16, 16),

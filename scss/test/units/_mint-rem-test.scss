@@ -1,19 +1,39 @@
 $mint-rem-test: (
-  'rem': (
-    test: rem(16),
-    return: 1rem
+  'convert': (
+    test: rem(16) + '',
+    return: '1rem'
   ),
-  'rem scale': (
-    test: rem(16, 2),
-    return: 8rem
+  'scale': (
+    test: rem(16, 2) + '',
+    return: '8rem'
   ),
-  'rem null': (
-    test: rem(16, null),
-    return: 1rem
+  'auto': (
+    test: rem(auto) + '',
+    return: 'auto'
   ),
-  'rem 0': (
+  '0': (
     test: rem(0) + '',
-    return: 0 + ''
+    return: '0'
+  ),
+  'null': (
+    test: rem(null) + '',
+    return: ''
+  ),
+  'compress string': (
+    test: rem(auto auto) + '',
+    return: 'auto'
+  ),
+  'compress 2 to 1': (
+    test: rem(16 16) + '',
+    return: '1rem'
+  ),
+  'compress 4 to 1': (
+    test: rem(16 16 16 16) + '',
+    return: '1rem'
+  ),
+  'compress 4 to 2': (
+    test: rem(16 32 16 32) + '',
+    return: '1rem 2rem'
   )
 );
 

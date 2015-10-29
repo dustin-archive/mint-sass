@@ -1,19 +1,39 @@
 $mint-un-test: (
-  'un': (
-    test: un(16),
-    return: 1
+  'convert': (
+    test: un(16) + '',
+    return: '1'
   ),
-  'un scale': (
-    test: un(16, 2),
-    return: 8
+  'scale': (
+    test: un(16, 2) + '',
+    return: '8'
   ),
-  'un null': (
-    test: un(16, null),
-    return: 1
+  'auto': (
+    test: un(auto) + '',
+    return: 'auto'
   ),
-  'un 0': (
+  '0': (
     test: un(0) + '',
-    return: 0 + ''
+    return: '0'
+  ),
+  'null': (
+    test: un(null) + '',
+    return: ''
+  ),
+  'compress string': (
+    test: un(auto auto) + '',
+    return: 'auto'
+  ),
+  'compress 2 to 1': (
+    test: un(16 16) + '',
+    return: '1'
+  ),
+  'compress 4 to 1': (
+    test: un(16 16 16 16) + '',
+    return: '1'
+  ),
+  'compress 4 to 2': (
+    test: un(16 32 16 32) + '',
+    return: '1 2'
   )
 );
 

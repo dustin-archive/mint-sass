@@ -1,19 +1,39 @@
 $mint-px-test: (
-  'px': (
-    test: px(16),
-    return: 16px
+  'convert': (
+    test: px(16) + '',
+    return: '1px'
   ),
-  'px scale': (
-    test: px(16, 2),
-    return: 8px
+  'scale': (
+    test: px(16, 2) + '',
+    return: '8px'
   ),
-  'px null': (
-    test: px(16, null),
-    return: 16px
+  'auto': (
+    test: px(auto) + '',
+    return: 'auto'
   ),
-  'px 0': (
+  '0': (
     test: px(0) + '',
-    return: 0 + ''
+    return: '0'
+  ),
+  'null': (
+    test: px(null) + '',
+    return: ''
+  ),
+  'compress string': (
+    test: px(auto auto) + '',
+    return: 'auto'
+  ),
+  'compress 2 to 1': (
+    test: px(16 16) + '',
+    return: '1px'
+  ),
+  'compress 4 to 1': (
+    test: px(16 16 16 16) + '',
+    return: '1px'
+  ),
+  'compress 4 to 2': (
+    test: px(16 32 16 32) + '',
+    return: '1px 2px'
   )
 );
 

@@ -1,0 +1,20 @@
+$mint-compress-test: (
+  '1 to 1': (
+    test: mint-compress(1) + '',
+    return: '1'
+  ),
+  '2 to 1': (
+    test: mint-compress(1 1) + '',
+    return: '1'
+  ),
+  '4 to 1': (
+    test: mint-compress(1 1 1 1) + '',
+    return: '1'
+  ),
+  '4 to 2': (
+    test: mint-compress(1 2 1 2) + '',
+    return: '1 2'
+  )
+);
+
+@debug cart($mint-compress-test);

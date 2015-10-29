@@ -18,22 +18,6 @@ $mint-rem-test: (
   'null': (
     test: rem(null) + '',
     return: ''
-  ),
-  'compress string': (
-    test: rem(auto auto) + '',
-    return: 'auto'
-  ),
-  'compress 2 to 1': (
-    test: rem(16 16) + '',
-    return: '1rem'
-  ),
-  'compress 4 to 1': (
-    test: rem(16 16 16 16) + '',
-    return: '1rem'
-  ),
-  'compress 4 to 2': (
-    test: rem(16 32 16 32) + '',
-    return: '1rem 2rem'
   )
 );
 

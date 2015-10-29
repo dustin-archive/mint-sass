@@ -1,0 +1,21 @@
+@function mint-compress($values) {
+  $items: ();
+  $half: length($values) / 2;
+
+  @if floor($half) == $half {
+    @for $i from 1 through $half {
+      @if nth($values, $i) == nth($values, $i + $half) {
+        $items: join($items, nth($values, $i));
+
+        @if $i == $half {
+          @return mint-compress($items);
+        }
+      }
+      @else {
+        @return $values; // use @break in Sass 4.0
+      }
+    }
+  }
+
+  @return $values;
+}

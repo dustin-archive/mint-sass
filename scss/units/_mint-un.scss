@@ -1,7 +1,4 @@
-@function un($value, $scale: null) {
-  @return mint-unit('mint-un-expression', $mint-base-un, $value, $scale);
-}
 
-@function mint-un-expression($value) {
-  @return $value;
+@function un($values, $scale: $mint-base) {
+  @return mint-unit($values, $scale, $mint-base, 1);
 }

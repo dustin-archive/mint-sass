@@ -1,11 +1,3 @@
-@function mint-convert($base, $value) {
-  @if type-of($value) == 'number' {
-    @return call('mint-convert-expression', $base, $value);
-  }
-
-  @return $value;
-}
-
-@function mint-convert-expression($base, $value) {
+@function mint-convert($value, $base) {
   @return round($value * $base) / ($base * $base);
 }

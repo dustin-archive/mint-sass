@@ -4,8 +4,8 @@
 
   @each $value in $values {
     @if type-of($value) == 'number' and $value != 0 {
-      $value: mint-convert($value, $mint-base);
       $value: mint-scale($value, $mint-base, $scale);
+      $value: mint-convert($value, $mint-base);
       $value: $value * $unit;
       $result: join($result, $value);
     }

@@ -2,19 +2,14 @@
 
 @import 'mint-variables';
 
+@import 'functions/mint-compress';
 @import 'functions/mint-convert';
 @import 'functions/mint-scale';
 @import 'functions/mint-unit';
 
-@import 'units/mint-px';
 @import 'units/mint-em';
+@import 'units/mint-px';
 @import 'units/mint-rem';
 @import 'units/mint-un';
 
-// @import 'test/functions/mint-convert-test';
-// @import 'test/functions/mint-scale-test';
-//
-// @import 'test/units/mint-em-test';
-// @import 'test/units/mint-px-test';
-// @import 'test/units/mint-rem-test';
-// @import 'test/units/mint-un-test';
+// @import 'test/test';

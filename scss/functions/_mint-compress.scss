@@ -19,3 +19,17 @@
 
   @return $values;
 }
+
+// use this function when slice gets added in Sass 4.0
+// @function mint-compress($values) {
+//   @if even(length($values)) {
+//     $half: length($values) / 2;
+//     $before: slice($values, 1, $half);
+//
+//     @if $before == slice($values, $half + 1) {
+//       @return mint-compress($before);
+//     }
+//   }
+//
+//   @return $values;
+// }

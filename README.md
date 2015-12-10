@@ -1,7 +1,7 @@
 Mint Sass
 =========
 
-Convert pixel values to em, rem, and unitless values the right way.
+A Sass library for units.
 
 ## Functions
 ```scss

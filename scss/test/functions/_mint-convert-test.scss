@@ -5,7 +5,7 @@ $mint-convert-test: (
   ),
   'snap 16.1': (
     test: mint-convert(16.1, 16),
-    return: 1.0078125
+    return: 1.00390625
   ),
   'snap 16.15': (
     test: mint-convert(16.15, 16),
@@ -13,7 +13,7 @@ $mint-convert-test: (
   ),
   'snap 16.16': (
     test: mint-convert(16.16, 16),
-    return: 1.01171875
+    return: 1.0078125
   ),
   'snap 16.2': (
     test: mint-convert(16.2, 16),

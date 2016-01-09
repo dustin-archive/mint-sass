@@ -1,35 +1,46 @@
 @function mint-compress($values) {
-  $items: ();
-  $half: length($values) / 2;
+  $length: length($values);
 
-  @if floor($half) == $half {
-    @for $i from 1 through $half {
-      @if nth($values, $i) == nth($values, $i + $half) {
-        $items: join($items, nth($values, $i));
-
-        @if $i == $half {
-          @return mint-compress($items);
+  @if $length == 1 {
+    @return $values;
+  }
+  @else {
+    $a: nth($values, 1);
+    $b: nth($values, 2);
+    @if $length == 2 {
+      @if $a == $b {
+        @return $a;
+      }
+    }
+    @else {
+      $c: nth($values, 3);
+      @if $length == 3 {
+        @if $a == $b and $a == $c {
+          @return $a;
+        }
+        @else if $a == $c {
+          @return $a $b;
         }
       }
       @else {
-        @return $values; // use @break in Sass 4.0
+        @if $length == 4 {
+          $d: nth($values, 4);
+          @if $a == $b and $a == $c and $a == $d {
+            @return $a;
+          }
+          @else if $a == $c and $b == $d {
+            @return $a $b;
+          }
+          @else if $b == $d {
+            @return $a $b $c;
+          }
+        }
+        @else {
+          @error "Mint: You can't pass more than 4 values.";
+        }
       }
     }
   }
 
   @return $values;
 }
-
-// use this function when slice gets added in Sass 4.0
-// @function mint-compress($values) {
-//   @if even(length($values)) {
-//     $half: length($values) / 2;
-//     $before: slice($values, 1, $half);
-//
-//     @if $before == slice($values, $half + 1) {
-//       @return mint-compress($before);
-//     }
-//   }
-//
-//   @return $values;
-// }

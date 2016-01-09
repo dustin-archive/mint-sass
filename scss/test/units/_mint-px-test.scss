@@ -1,7 +1,7 @@
 $mint-px-test: (
   'convert': (
     test: px(16) + '',
-    return: '1px'
+    return: '16px'
   ),
   'scale': (
     test: px(16, 2) + '',

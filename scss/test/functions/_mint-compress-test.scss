@@ -7,6 +7,22 @@ $mint-compress-test: (
     test: mint-compress(1 1) + '',
     return: '1'
   ),
+  '2 to 2': (
+    test: mint-compress(1 2) + '',
+    return: '1 2'
+  ),
+  '3 to 1': (
+    test: mint-compress(1 1 1) + '',
+    return: '1'
+  ),
+  '3 to 2': (
+    test: mint-compress(1 2 1) + '',
+    return: '1 2'
+  ),
+  '3 to 3': (
+    test: mint-compress(1 2 3) + '',
+    return: '1 2 3'
+  ),
   '4 to 1': (
     test: mint-compress(1 1 1 1) + '',
     return: '1'
@@ -14,6 +30,14 @@ $mint-compress-test: (
   '4 to 2': (
     test: mint-compress(1 2 1 2) + '',
     return: '1 2'
+  ),
+  '4 to 3': (
+    test: mint-compress(1 2 3 2) + '',
+    return: '1 2 3'
+  ),
+  '4 to 4': (
+    test: mint-compress(1 2 3 4) + '',
+    return: '1 2 3 4'
   )
 );
 

@@ -36,7 +36,7 @@
           }
         }
         @else {
-          @error "Mint: You can't pass more than 4 values.";
+          @error "mint-sass: You can't pass more than 4 values.";
         }
       }
     }

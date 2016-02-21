@@ -4,7 +4,7 @@ Mint Sass
 A tiny Sass library for units.
 
 ## Functions
-```scss
+```
 px(values, [scale])  // pixel
 em(values, [scale])  // em
 rem(values, [scale]) // rem

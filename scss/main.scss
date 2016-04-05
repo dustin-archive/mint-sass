@@ -31,11 +31,9 @@ $mint-base: 16 !default;
       $value: mint-scale($value, $base, $scale);
       $value: mint-convert($value, $base);
       $value: $value * $unit;
-      $result: join($result, $value);
     }
-    @else {
-      $result: join($result, $value);
-    }
+
+    $result: join($result, $value);
   }
 
   @return $result;

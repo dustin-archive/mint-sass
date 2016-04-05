@@ -1,13 +1,42 @@
 @import 'mint-variables';
+@import 'mint-compress';
 
-@import 'functions/mint-compress';
-@import 'functions/mint-convert';
-@import 'functions/mint-scale';
-@import 'functions/mint-unit';
+//
+// + Variables
+// =============================================================================
 
-@import 'units/mint-em';
-@import 'units/mint-px';
-@import 'units/mint-rem';
-@import 'units/mint-un';
+$mint-base: 16 !default;
 
-// @import 'test/test';
+//
+// + Units
+// =============================================================================
+
+@function mint-scale($value, $base, $scale) {
+  @return ($base / $scale) * $value;
+}
+
+@function mint-convert($value, $base) {
+  @return $value / $base;
+}
+
+@import 'mint-unit';
+
+//
+// + Units
+// =============================================================================
+
+@function em($values, $scale: $mint-base) {
+  @return mint-unit($values, $mint-base, $scale, 1em);
+}
+
+@function rem($values, $scale: $mint-base) {
+  @return mint-unit($values, $mint-base, $scale, 1rem);
+}
+
+@function px($values, $scale: 1) {
+  @return mint-unit($values, 1, $scale, 1px);
+}
+
+@function un($values, $scale: $mint-base) {
+  @return mint-unit($values, $mint-base, $scale, 1);
+}

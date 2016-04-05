@@ -19,7 +19,28 @@ $mint-base: 16 !default;
   @return $value / $base;
 }
 
-@import 'mint-unit';
+//
+// + Units
+// =============================================================================
+
+@function mint-unit($values, $base, $scale, $unit) {
+  $result: ();
+  $values: mint-compress($values);
+
+  @each $value in $values {
+    @if type-of($value) == 'number' and $value != 0 {
+      $value: mint-scale($value, $base, $scale);
+      $value: mint-convert($value, $base);
+      $value: $value * $unit;
+      $result: join($result, $value);
+    }
+    @else {
+      $result: join($result, $value);
+    }
+  }
+
+  @return $result;
+}
 
 //
 // + Units

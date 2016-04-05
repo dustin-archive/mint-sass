@@ -1,6 +1,6 @@
 {
   "name": "mint-sass",
-  "description": "A tiny Sass library for units.",
+  "description": "A sweet unit library",
   "homepage": "https://github.com/dustindowell22/mint-sass",
   "authors": [
     "Dustin Dowell <dustindowell22@gmail.com>"
@@ -9,6 +9,7 @@
   "keywords": [
     "mint",
     "library",
+    "lib",
     "css",
     "sass",
     "scss"

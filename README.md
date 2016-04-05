@@ -1,7 +1,7 @@
 Mint
 ===
 
-> A sweet unit library
+> Sweet unit utilities
 
 ## Functions
 ```

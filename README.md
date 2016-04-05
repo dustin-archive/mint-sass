@@ -1,7 +1,7 @@
-Mint Sass
-=========
+Mint
+===
 
-A tiny Sass library for units.
+> A sweet unit library
 
 ## Functions
 ```

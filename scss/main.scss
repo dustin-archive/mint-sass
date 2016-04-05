@@ -49,12 +49,12 @@ $mint-base: 16 !default;
   @return mint-unit($values, $mint-base, $scale, 1em);
 }
 
-@function rem($values, $scale: $mint-base) {
-  @return mint-unit($values, $mint-base, $scale, 1rem);
-}
-
 @function px($values, $scale: 1) {
   @return mint-unit($values, 1, $scale, 1px);
+}
+
+@function rem($values, $scale: $mint-base) {
+  @return mint-unit($values, $mint-base, $scale, 1rem);
 }
 
 @function un($values, $scale: $mint-base) {

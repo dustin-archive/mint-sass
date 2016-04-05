@@ -1,3 +1,0 @@
-@function rem($values, $scale: $mint-base) {
-  @return mint-unit($values, $mint-base, $scale, 1rem);
-}

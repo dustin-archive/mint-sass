@@ -56,34 +56,15 @@ $mint-base: 16 !default;
 }
 
 //
-// + Scale
-// =============================================================================
-
-@function mint-scale($value, $base, $scale) {
-  @return ($base / $scale) * $value;
-}
-
-//
-// + Convert
-// =============================================================================
-
-@function mint-convert($value, $base) {
-  @return $value / $base;
-}
-
-//
 // + Process
 // =============================================================================
 
-@function mint-unit($values, $base, $scale, $unit) {
+@function mint($values, $base, $scale, $unit) {
   $result: ();
-  $values: mint-compress($values);
 
-  @each $value in $values {
+  @each $value in mint-compress($values) {
     @if type-of($value) == 'number' and $value != 0 {
-      $value: mint-scale($value, $base, $scale);
-      $value: mint-convert($value, $base);
-      $value: $value * $unit;
+      $value: ((($base / $scale) * $value) / $base) * $unit;
     }
 
     $result: join($result, $value);
@@ -97,17 +78,17 @@ $mint-base: 16 !default;
 // =============================================================================
 
 @function em($values, $scale: $mint-base) {
-  @return mint-unit($values, $mint-base, $scale, 1em);
+  @return mint($values, $mint-base, $scale, 1em);
 }
 
 @function px($values, $scale: 1) {
-  @return mint-unit($values, 1, $scale, 1px);
+  @return mint($values, 1, $scale, 1px);
 }
 
 @function rem($values, $scale: $mint-base) {
-  @return mint-unit($values, $mint-base, $scale, 1rem);
+  @return mint($values, $mint-base, $scale, 1rem);
 }
 
 @function un($values, $scale: $mint-base) {
-  @return mint-unit($values, $mint-base, $scale, 1);
+  @return mint($values, $mint-base, $scale, 1);
 }

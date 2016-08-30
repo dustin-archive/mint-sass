@@ -13,8 +13,9 @@ un($values, $scale: null)  // unitless
 
 ## Values
 + Values can be any data type
++ When passing numbers, units can only be `px` or unitless
 
-If a value is not a number it will be output as-is. If a value is a number or a list of numbers they will be interpreted as pixel dimensions ready to be converted. As well as converting values unit functions will also compress them to shorthand when possible.
+If a value is not a number it will be output as-is. If a value or list of values contain a `px` or unitless number they will be interpreted as pixel dimensions and converted, otherwise an error message will be thrown. As well as converting values unit functions will also compress them to shorthand when possible.
 
 ## Scale
 + Optional

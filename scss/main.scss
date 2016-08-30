@@ -56,6 +56,14 @@ $mint-base: 16 !default;
 }
 
 //
+// + Strip
+// =============================================================================
+
+@function mint-strip($value) {
+  @return $value / (($value * 0) + 1);
+}
+
+//
 // + Mint
 // =============================================================================
 
@@ -64,7 +72,7 @@ $mint-base: 16 !default;
 
   @each $value in mint-compress($values) {
     @if type-of($value) == 'number' and $value != 0 {
-      $value: ((($base / $scale) * $value) / $base) * $unit;
+      $value: ((($base / $scale) * mint-strip($value)) / $base) * $unit;
     }
 
     $result: join($result, $value);

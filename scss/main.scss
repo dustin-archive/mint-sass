@@ -71,8 +71,18 @@ $mint-base: 16 !default;
   $result: ();
 
   @each $value in mint-compress($values) {
-    @if type-of($value) == 'number' and $value != 0 {
-      $value: ((($base / $scale) * mint-strip($value)) / $base) * $unit;
+    @if type($value) == 'number' {
+      @if not index('px' '', unit($value)) {
+        @error "mint-sass: You can only pass px or unitless values as numbers.";
+      }
+
+      // Strips the unit if 0px is passed and avoids useless math.
+      @if $value == 0 {
+        $value: 0;
+      }
+      @else {
+        $value: ((($base / $scale) * mint-strip($value)) / $base) * $unit;
+      }
     }
 
     $result: join($result, $value);

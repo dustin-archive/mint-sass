@@ -71,7 +71,7 @@ $mint-base: 16 !default;
   $result: ();
 
   @each $value in mint-compress($values) {
-    @if type($value) == 'number' {
+    @if type-of($value) == 'number' {
       @if not index('px' '', unit($value)) {
         @error "mint-sass: You can only pass px or unitless values as numbers.";
       }

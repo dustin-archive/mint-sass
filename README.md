@@ -1,26 +1,85 @@
-Mint
+mint-sass
 ===
 
 > Sweet unit library
 
-## Functions
+<br>
+
+| Legend |
+| :------------- |
+| [Unit Functions](#unit-functions) |
+| [`$mint-base`](#mint-base) |
+| [`mint()`](#mint-fn) |
+| [`mint-compress()`](#mint-compress) |
+| [`mint-strip()`](#mint-strip) |
+
+<br>
+
+### Unit Functions
+Shorthands for units based off [`mint()`](#mint-fn) that assume a base equal to [`$mint-base`](#mint-base)
+
++ `px(values, unit, [scale])`
++ `em(values, unit, [scale])`
++ `rem(values, unit, [scale])`
++ `un(values, unit, [scale])`
+
+<br>
+
+### <a name='mint-base'>`$mint-base`</a>
+Base font size (`16` by default)
+
+<br>
+
+### <a name='mint-fn'>`mint(values, base, scale, unit)`</a>
+Converts and scales values
+
++ `values` (`List`) List of values for mint to process
++ `base` (`Number`) Base font size
++ `scale` (`Number`) Relative font size or scale
++ `unit` (`String`) Unit for each number
+
 ```
-px($values, $scale: null)  // pixel
-em($values, $scale: null)  // em
-rem($values, $scale: null) // rem
-un($values, $scale: null)  // unitless
+// in
+.foo {
+  margin: mint(8 4 8 4, 16, 16, em);
+}
+
+// out
+.foo {
+  margin: 0.5em 0.25em;
+}
 ```
 
-## Values
-+ Values can be any data type
-+ When passing numbers, units can only be `px` or unitless
+<br>
 
-If a value is not a number it will be output as-is. If a value or list of values contain a `px` or unitless number they will be interpreted as pixel dimensions and converted, otherwise an error message will be thrown. As well as converting values unit functions will also compress them to shorthand when possible.
+### <a name='mint-compress'>`mint-compress(values)`</a>
+Compress values to their shortest form
 
-## Scale
-+ Optional
+```
+// in
+.foo {
+  margin: mint-compress(8px 4px 8px 4px);
+}
 
-If you're using em units, to change the font size of an element and it's contents while keeping the rest of the box model visually the same, you can pass a scale argument equal to the font size.
+// out
+.foo {
+  margin: 8px 4px;
+}
+```
 
-## Variables
-You can modify the `$mint-base` variable to change the base font size used while converting. This value should match the font size set on the body. However, I do not recommend changing this.
+<br>
+
+### <a name='mint-strip'>`mint-strip(value)`</a>
+Strip a unit from a number
+
+```
+// in
+.foo {
+  line-height: mint-strip(16px);
+}
+
+// out
+.foo {
+  line-height: 16;
+}
+```

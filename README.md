@@ -15,7 +15,7 @@ mint-sass
 
 <br>
 
-### Unit Functions
+## Unit Functions
 Shorthands for units based off [`mint()`](#mint-fn) that assume a base equal to [`$mint-base`](#mint-base)
 
 + `px(values, unit, [scale])`
@@ -25,12 +25,12 @@ Shorthands for units based off [`mint()`](#mint-fn) that assume a base equal to 
 
 <br>
 
-### <a name='mint-base'>`$mint-base`</a>
+## <a name='mint-base'>`$mint-base`</a>
 Base font size (`16` by default)
 
 <br>
 
-### <a name='mint-fn'>`mint(values, base, scale, unit)`</a>
+## <a name='mint-fn'>`mint(values, base, scale, unit)`</a>
 Converts and scales values
 
 + `values` (`List`) List of values for mint to process
@@ -52,7 +52,7 @@ Converts and scales values
 
 <br>
 
-### <a name='mint-compress'>`mint-compress(values)`</a>
+## <a name='mint-compress'>`mint-compress(values)`</a>
 Compress values to their shortest form
 
 ```
@@ -69,7 +69,7 @@ Compress values to their shortest form
 
 <br>
 
-### <a name='mint-strip'>`mint-strip(value)`</a>
+## <a name='mint-strip'>`mint-strip(value)`</a>
 Strip a unit from a number
 
 ```

@@ -11,45 +11,25 @@ $mint-base: 16 !default;
 @function mint-compress($values) {
   $length: length($values);
 
-  @if $length == 1 {
-    @return $values;
+  $a: if($length > 0, nth($values, 1), null);
+  $b: if($length > 1, nth($values, 2), null);
+  $c: if($length > 2, nth($values, 3), null);
+  $d: if($length > 3, nth($values, 4), null);
+
+  @if $length == 2 {
+    @if $a == $b { @return $a; }
   }
-  @else {
-    $a: nth($values, 1);
-    $b: nth($values, 2);
-    @if $length == 2 {
-      @if $a == $b {
-        @return $a;
-      }
-    }
-    @else {
-      $c: nth($values, 3);
-      @if $length == 3 {
-        @if $a == $b and $a == $c {
-          @return $a;
-        }
-        @else if $a == $c {
-          @return $a $b;
-        }
-      }
-      @else {
-        @if $length == 4 {
-          $d: nth($values, 4);
-          @if $a == $b and $a == $c and $a == $d {
-            @return $a;
-          }
-          @else if $a == $c and $b == $d {
-            @return $a $b;
-          }
-          @else if $b == $d {
-            @return $a $b $c;
-          }
-        }
-        @else {
-          @error "mint-sass: You can't pass more than 4 values.";
-        }
-      }
-    }
+  @if $length == 3 {
+    @if $a == $b and $a == $c { @return $a; }
+    @if $a == $c { @return $a $b; }
+  }
+  @if $length == 4 {
+    @if $a == $b and $a == $c and $a == $d { @return $a; }
+    @if $a == $c and $b == $d { @return $a $b; }
+    @if $b == $d { @return $a $b $c; }
+  }
+  @if $length > 4 {
+    @error 'mint-sass: You must pass between 1 and 4 values.';
   }
 
   @return $values;
@@ -73,7 +53,7 @@ $mint-base: 16 !default;
   @each $value in mint-compress($values) {
     @if type-of($value) == 'number' {
       @if not index('px' '', unit($value)) {
-        @error "mint-sass: You can only pass px or unitless values as numbers.";
+        @error 'mint-sass: You must pass number values as px or unitless.';
       }
 
       // Strips the unit if 0px is passed and avoids useless math.

@@ -1,0 +1,24 @@
+{
+  "name": "mint-sass",
+  "version": "2.1.3",
+  "description": "Sweet unit library",
+  "main": "scss/main.scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dustindowell22/mint-sass.git"
+  },
+  "keywords": [
+    "mint",
+    "library",
+    "lib",
+    "css",
+    "sass",
+    "scss"
+  ],
+  "author": "Dustin Dowell <dustindowell22@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dustindowell22/mint-sass/issues"
+  },
+  "homepage": "https://github.com/dustindowell22/mint-sass#readme"
+}

@@ -3,8 +3,6 @@ mint-sass
 
 > Sweet unit library
 
-<br>
-
 | Legend |
 | :------------- |
 | [Unit Functions](#unit-functions) |
@@ -12,8 +10,6 @@ mint-sass
 | [`mint()`](#mint-fn) |
 | [`mint-compress()`](#mint-compress) |
 | [`mint-strip()`](#mint-strip) |
-
-<br>
 
 ## Unit Functions
 Shorthands for units based off [`mint()`](#mint-fn) that assume a base equal to [`$mint-base`](#mint-base)
@@ -23,14 +19,10 @@ Shorthands for units based off [`mint()`](#mint-fn) that assume a base equal to 
 + `rem(values, unit, [scale])`
 + `un(values, unit, [scale])`
 
-<br>
-
-## <a name='mint-base'>`$mint-base`</a>
+## <span name='mint-base'>`$mint-base`</span>
 Base font size (`16` by default)
 
-<br>
-
-## <a name='mint-fn'>`mint(values, base, scale, unit)`</a>
+## <span name='mint-fn'>`mint(values, base, scale, unit)`</span>
 Converts and scales values
 
 + `values` (`List`) List of values for mint to process
@@ -38,7 +30,7 @@ Converts and scales values
 + `scale` (`Number`) Relative font size or scale
 + `unit` (`String`) Unit for each number
 
-```
+```scss
 // in
 .foo {
   margin: mint(8 4 8 4, 16, 16, em);
@@ -50,12 +42,10 @@ Converts and scales values
 }
 ```
 
-<br>
-
-## <a name='mint-compress'>`mint-compress(values)`</a>
+## <span name='mint-compress'>`mint-compress(values)`</span>
 Compress values to their shortest form
 
-```
+```scss
 // in
 .foo {
   margin: mint-compress(8px 4px 8px 4px);
@@ -67,12 +57,10 @@ Compress values to their shortest form
 }
 ```
 
-<br>
-
-## <a name='mint-strip'>`mint-strip(value)`</a>
+## <span name='mint-strip'>`mint-strip(value)`</span>
 Strip a unit from a number
 
-```
+```scss
 // in
 .foo {
   line-height: mint-strip(16px);
